@@ -1,0 +1,25 @@
+//librerias//
+#include "stdafx.h"
+#include "conio.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "iostream"
+
+using namespace std;
+//prototipos//
+
+//programa principal//
+void main(){
+	float p, pf;
+	do{
+		cout<< "Ingrese el precio del producto"<<endl;
+		cin>>p;
+	}while (p<0);
+
+	pf=p * (0.13 + 1);
+
+	cout<< "El precio con el IVA es: "<<pf;
+	getch();
+}
+
+
