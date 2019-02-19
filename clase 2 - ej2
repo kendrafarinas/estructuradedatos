@@ -8,7 +8,8 @@ using namespace std;
 void EC2(float a,float b,float c);
 
 void main()
-	{float a,b,c;
+{
+	float a,b,c;
 	cout<<"Ingrese a: "<<endl;
 	cin>>a;
 	cout<<"Ingrese b: "<<endl;
@@ -17,10 +18,11 @@ void main()
 	cin>>c;
 	EC2(a,b,c);
 	getch();
-	}
+}
 
 void EC2(float a,float b,float c)
-{float x1,x2,d,x,PR,PC;
+{
+float x1,x2,d,x,PR,PC;
 d=b*b-4*a*c;
 	if(a==0)
 	{x=-c/b;cout<<"X:"<<x<<endl;
