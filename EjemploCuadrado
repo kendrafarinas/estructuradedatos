@@ -1,0 +1,61 @@
+// Cuadrado.h
+
+#pragma once
+
+class Cuadrado
+{
+   private:
+          float lado;
+   public:
+           Cuadrado (float _lado);
+           ~Cuadrado (void);
+           float perimetro (float _lado);
+           float area (float _lado);
+};
+
+
+//Cuadrado.cpp
+
+#include “stdAfx.h”
+#include “Cuadrado.h”
+
+Cuadrado::Cuadrado (float _lado)
+{
+   lado=_lado;
+}
+
+float Cuadrado::perimetro (float lado)
+{
+   float p;
+   p=4*lado;
+   return p;
+}
+
+float Cuadrado::area (float lado)
+{
+   float a;
+   a=lado*lado;
+   return a;
+}
+
+Cuadrado::~Cuadrado (void)
+{
+}
+
+//EjemploCuadrado.cpp
+
+#include “stdAfx.h”
+#include “Cuadrado.h”
+#include <iostream>
+#include “conio.h”
+
+using namespace std;
+
+void main()
+{
+   Cuadrado c1 (4);
+   cout<< “El area es: “ <<c1.area(4)<<endl;
+   cout<< “El perimetro es: “ <<c1.perimetro(4)<<endl;
+
+getch();
+}
