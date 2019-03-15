@@ -1,0 +1,76 @@
+//Pares.h
+
+#pragma once
+class Pares
+{
+private:
+	int numero;
+public:
+	Pares(int _numero);
+	~Pares(void);
+	bool verificarpar();
+
+};
+
+//Pares.cpp
+
+#include "StdAfx.h"
+#include "Pares.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+
+Pares::Pares(int _numero)
+{
+	numero=_numero;
+}
+
+
+Pares::~Pares(void)
+{
+}
+
+bool Pares::verificarpar()
+{
+	bool aux=true;
+	int digito;
+	do{
+	digito=numero%10;
+
+	if (digito%2==0)
+	return aux;
+	else
+	return aux=false;
+
+	numero=numero/10;
+
+	}while (numero>0);
+
+
+
+}
+
+
+//examen2.cpp
+
+#include "StdAfx.h"
+#include "Pares.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{
+	int n1;
+	cout<<"Ingrese el numero: "<<endl;
+	cin>>n1;
+	Pares p1(n1);
+	if (p1.verificarpar())
+		cout<<"Tiene digitos pares"<<endl;
+	else
+		cout<< "No tiene digitos pares"<<endl;
+getch();
+
+}
