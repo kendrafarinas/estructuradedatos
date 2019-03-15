@@ -1,0 +1,59 @@
+//Area.h
+
+#pragma once
+class Area
+{
+private:
+	float radio;
+	float altura;
+public:
+	Area(void);
+	~Area(void);
+	float calculoarea(float r, float h);
+};
+
+//Area.cpp
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "Area.h"
+
+
+Area::Area()
+{
+}
+
+
+Area::~Area(void)
+{
+}
+
+float Area::calculoarea(float r, float h)
+{float a;
+a=(2*3.1416*r*(r+h));
+return a;
+}
+
+//examen.cpp
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "Area.h"
+
+using namespace std;
+void main()
+{
+	float r, h, a;
+	Area A1;
+	cout<<"Ingresar radio:"<<endl;
+	cin>>r;
+	cout<<"Ingresar altura:"<<endl;
+	cin>>h;
+
+	a=A1.calculoarea(r, h);
+	cout<<"El area es: "<<a;
+
+	getch();
+}
