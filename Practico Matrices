@@ -1,0 +1,22 @@
+#pragma once
+class Matriz
+{
+private:
+    int mat[10][10];
+    int m,n;
+public:
+    Matriz(int _n, int _m);
+    ~Matriz(void);
+    void cargarmat();
+    void mostrarmat();
+    void devolvermat(int _mat[10][10]);
+    void sumarmat(int _mat1[10][10],int _mat2[10][10]);
+    void transpuesta(int _mat1[10][10]);
+    void multiplicar(int _mat1[10][10],int _mat2[10][10]);
+	void diagonal();
+	void cargarEspiral (int mat[10][10]);
+    bool matrizmagica(int mat[10][10],int n);
+	
+};
+
+
