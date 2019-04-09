@@ -20,3 +20,178 @@ public:
 };
 
 
+#include "StdAfx.h"
+#include "Matriz.h"
+#include <iostream>
+ using namespace std;
+
+ Matriz::Matriz(int _n,int _m)
+{
+    n=_n;
+    m=_m;
+}
+
+Matriz::~Matriz(void)
+{
+}
+
+void Matriz::cargarmat()
+{
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+        {
+            cout<<"ingresar m["<<a<<"]["<<b<<"]=";
+            cin>>mat[a][b];
+        }
+}
+
+void Matriz::mostrarmat()
+{
+    for (int a=0;a<n;a++)
+    {
+        for (int b=0;b<m;b++)
+        {
+            cout<<mat[a][b];
+        }
+        cout<<endl;
+     }
+}
+
+void Matriz::devolvermat(int _mat[10][10])
+{
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+        {
+            _mat[a][b]=mat[a][b];
+        }
+}
+
+void Matriz::sumarmat(int _mat1[10][10],int _mat2[10][10])
+{
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+            mat[a][b]=_mat1[a][b]+_mat2[a][b];
+}
+
+void Matriz::transpuesta(int _mat1[10][10])
+{    int aux;
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+            mat[b][a]=_mat1[a][b];
+     aux=m;
+     m=n;
+     n=aux;
+}
+
+void Matriz::multiplicar(int _mat1[10][10],int _mat2[10][10])
+{
+    int acum=0;
+    for(int a=0; a<n ;a++)
+    {
+        for(int b=0; b<m ;b++)
+        {
+            for(int c=0; c<m ;c++)
+            {
+                acum=acum+(_mat1[a][c]*_mat2[c][b]);
+            }
+            mat[a][b]=acum;
+        }
+    }
+}
+
+bool Matriz:: matrizmagica(int mat[10][10],int n)
+{    int s=0,aux=0;
+bool k;
+    for(int i=0;i<n;i++)
+    {
+        s=s+mat[0][i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        aux=0;
+        for(int j=0;j<n;j++)
+        {
+            aux=aux+mat[i][j];
+        }
+        if(aux!=s)
+        {
+            k= false;
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        aux=0;
+        for(int j=0;j<n;j++)
+        {
+            aux=aux+mat[j][i];
+        }
+        if(aux!=s)
+        {
+            k=false;
+        }
+    }
+    aux=0;
+    for(int i=0;i<n;i++)
+    {
+        aux=aux+mat[i][i];
+    }
+    if(aux!=s)
+    {
+        k= false;
+    }
+    else 
+    {
+        k = true;
+    }
+    
+    return(k);
+}
+
+
+void Matriz::diagonal()
+{ 
+  int cont=0,p;
+  cout<<"ingrese columnas y filas de la matriz : ";
+  cin>>p;
+  for (int i=0;i<p;i++)
+  { for (int j=0;j<p;j++)
+      { if (i==j)
+          { mat[i][j]=cont;
+            cont++;
+          }
+	  else { mat[i][j]=0;}
+      }
+  }
+  for (int i=0;i<p;i++)
+    { for (int j=0;j<p;j++)
+        { cout<<mat[i][j]<<"  ";
+        }cout<<endl;
+    }
+}
+
+void Matriz::cargarEspiral (int mat[10][10])
+{
+int a,i,c=1;
+    a=0;
+    for(a=0;a<n/2;a++){
+        for(i=a;i<n-a;i++){
+            mat[a][i]=c++;
+        }
+        for(i=a+1;i<n-a;i++){
+            mat[i][n-a-1]=c++;
+        }
+        for(i=n-a-2;i>=a;i--){
+            mat[n-a-1][i]=c++;
+        }
+        for(i=n-a-2;i>a;i--){
+            mat[i][a]=c++;
+        }
+    }
+    if(n%2!=0)
+        mat[(n-1)/2][(n-1)/2]=c;
+} 
+
+
+
+
+
