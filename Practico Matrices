@@ -464,6 +464,118 @@ void main()
 }
 
 
+#include "stdafx.h"
+#include "conio.h"
+#include <string>
+#include <iostream>
+#define MAX 4
+using namespace std;
+void cargar ( int n, string M[MAX][MAX])
+{for(int a=0;a<n;a++) 
+  {for (int b=0;b<n;b++)
+    {cout<<"M["<<a<<"]["<<b<<"]: ";
+    cin>>M[a][b];
+    }
+   }
+  }
+void mostrar( int m, string N[MAX][MAX][MAX])
+{for(int a=0;a<m;a++) 
+ {for (int b=0;b<m;b++)
+  {for (int c=0;c<m;c++)
+  
+    {cout<<N[a][b][c]<<" ";
+    }cout<<"  ";
+   }cout<<endl;
+  }cout<<endl;
+ }
+
+void traspasar ( int n, string M[MAX][MAX], string M2[MAX][MAX][MAX])
+{string aux; for(int a=0;a<n;a++) 
+  {for (int b=0;b<n;b++)
+   {for (int c=0;c<n;c++)
+{aux=M[a][b]; M2[a][b][c]=aux;
+}
+}}}
+void main()
+{ int n; string M[MAX][MAX], M2[MAX][MAX][MAX];
+do {cout<<"Ingrese el tamanio de la matriz:  ";
+cin>>n;
+if (n<2) {cout<<"Debe tener un minimo de 2 filas y columnas para ser matriz"<<endl;}
+}while (n<2);
+cargar (n, M);
+traspasar (n, M,M2);
+mostrar (n,M2);
+getch();
+}
+
+
+
+
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 4
+using namespace std;
+void cargar (int m, int N[MAX][MAX][MAX][MAX])
+{for(int a=0;a<m;a++) //esto es para cargar
+ {for (int c=0;c<m;c++)
+  {for (int b=0;b<m;b++)
+   {for (int d=0;d<m;d++)
+    {cout<<"M["<<a<<"]["<<b<<"]["<<c<<"]["<<d<<"]: ";
+    cin>>N[a][b][c][d];
+    }
+   }
+  }
+ }
+}
+void mostrar( int m, int N[MAX][MAX][MAX][MAX])
+{for(int a=0;a<m;a++) //esto es para mostrar
+ {for (int c=0;c<m;c++)
+  {for (int b=0;b<m;b++)
+   {for (int d=0;d<m;d++)
+    {cout<<N[a][b][c][d]<<" ";
+    }cout<<"  ";
+   }cout<<endl;
+  }cout<<endl;
+ }
+}
+void modificar ( int n, int M[MAX][MAX][MAX][MAX], int M2[MAX][MAX][MAX][MAX])
+{int aux;
+for(int a=0;a<n;a++) //esto es para modificar
+  {for (int c=0;c<n;c++)
+   {for (int d=0;d<n;d++)
+    {M2[a][a][c][d]= M[n-1-a][n-1-a][c][d];
+    
+    M2[a][n-1-a][c][d]= M[n-1-a][a][c][d];
+    }
+   }
+  }
+for(int a=0;a<n;a++) //esto es para modificar internamente
+  {for (int c=0;c<(n/2);c++)
+   
+    {aux=M2[a][a][c][c];M2[a][a][c][c]=M2[a][a][n-1-c][n-1-c]; M2[a][a][n-1-c][n-1-c]=aux;
+    
+    aux=M2[a][n-1-a][c][n-1-c];M2[a][n-1-a][c][n-1-c]= M2[a][n-1-a][n-1-c][c]; M2[a][n-1-a][n-1-c][c]=aux;
+    }
+   
+  }
+}
+void main()
+{ int n, M[MAX][MAX][MAX][MAX], M2[MAX][MAX][MAX][MAX];
+do {cout<<"Ingrese la dimension del cubo:  ";
+cin>>n;
+if (n<2) {cout<<"Debe tener un minimo de 2 filas y columnas para ser matriz"<<endl;}
+}while (n<2);
+cargar (n, M);
+mostrar (n,M);
+getch();
+modificar (n,M,M2);
+mostrar (n,M2);
+system ("pause");
+}
+
+
 
 
 
