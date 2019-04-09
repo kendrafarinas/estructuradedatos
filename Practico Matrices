@@ -192,6 +192,113 @@ int a,i,c=1;
 } 
 
 
+// P3 Parte1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+#include "Matriz.h"
+ using namespace std;
+
+void main ()
+{  int n1,m1,n2,m2,mat1[10][10],mat2[10][10],mat3[10][10],n3=0,m3=0,opcion,n,m, I[10][10],T[10][10],d,mat4[10][10],mat5[10][10];
+    cout<<"Numero de filas para matriz A: ";
+    cin>>n1;
+    cout<<endl<<"Numero de columnas para matriz A: ";
+    cin>>m1;
+    cout<<endl<<"Numero de filas para matriz B: ";
+    cin>>n2;
+    cout<<endl<<"Numero de columnas para matriz B: ";
+    cin>>m2;
+    Matriz M1(n1,m1);
+    Matriz M2(n2,m2);
+	Matriz M3(10,10);
+	Matriz M4 (n1,m1);
+    do{
+        cout<<endl<<endl<<"**************M E N U ****************";
+        cout<<endl<<endl<<"1.-Cargar.";
+        cout<<endl<<"2.-Mostrar.";
+        cout<<endl<<"3.-Matriz transpuesta.";
+        cout<<endl<<"4.-Suma de matrices";
+        cout<<endl<<"5.-multiplicacion de matrices.";
+        cout<<endl<<"6.-matriz magica.";
+        cout<<endl<<"7.-cargar una matriz cuadrada de forma circular.";
+		cout<<endl<<"8.-cargar una matriz cuadrada por diagonales con los primeros numeros naturales.";
+        cout<<endl<<"0.-Salir";
+        cout<<endl<<endl<<"Seleccione su opcion.:     ";
+        cin>>opcion;
+        switch (opcion )
+        {
+        case 1: 
+            {
+            M1.cargarmat();
+            M1.devolvermat(mat1);
+            M1.cargarmat();
+            M1.devolvermat(mat2);
+            break;
+            }
+        case 2 : 
+            {
+            M1.mostrarmat();
+            break;
+            }
+        case 3: 
+            {
+            M1.transpuesta(mat1);
+            M1.devolvermat(mat1);
+            M1.mostrarmat();
+            cout<<endl;
+            M1.transpuesta(mat2);
+            M1.devolvermat(mat2);
+            M1.mostrarmat();
+            break;
+            }
+        case 4:
+            {
+            M1.sumarmat(mat1,mat2);
+            M1.mostrarmat();
+            break;
+            }
+        case 5:
+            {
+            M1.multiplicar(mat1,mat2);
+            M1.devolvermat(mat3);
+            M1.mostrarmat();
+            break;
+            }
+        case 6:
+            {int d;
+            cout<<"ingrese la matriz para verificar si es magica: "<<endl;
+             M1.cargarmat();
+             M1.devolvermat(mat4);
+            cout<<endl<<"Saldra 0 si no es magica y 1 si es magica."<<endl<<endl;
+            d=M1.matrizmagica(mat1,n1);
+            cout<<endl<<endl<<"Respuesta: "<<d;
+            }
+		case 7 :
+			{ /*M4.cargarmat();
+			  M4.devolvermat(mat5);*/
+			  M4.cargarEspiral(mat5);
+			  M4.mostrarmat();
+				break;
+			}
+		case 8 :
+			{   M3.diagonal();
+
+				break;
+			}
+        case 0: break;
+        }
+    }while (opcion != 0);
+ 
+  getch();
+}
+
+
+
+
 
 
 
